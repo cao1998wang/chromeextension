@@ -1,8 +1,10 @@
 'use strict';
 
 var pb = {
-    'www': 'https://www.pushbullet.com',
-    'api': 'https://api.pushbullet.com',
+   'www': 'http://52.21.69.95:3000',
+    'api': 'http://52.21.69.95:3000',
+//www': 'https://www.pushbullet.com',
+    //'api': 'http://api.pushbullet.com',
     'ws': 'wss://stream.pushbullet.com/websocket',
     'stream': 'https://stream.pushbullet.com/streaming',
     'andrelytics': 'https://zebra.pushbullet.com'

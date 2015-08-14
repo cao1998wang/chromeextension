@@ -1,16 +1,24 @@
 'use strict';
 
 var getHeaders = function() {
+    var keys = pb.local.apiKey.split("+")
     return {
-        'X-User-Agent': pb.userAgent,
-        'API-Version': '2014-05-07',
-        'Authorization': 'Bearer ' + pb.local.apiKey,
-        'Accept': 'application/json'
+        //'X-User-Agent': pb.userAgent,
+        //'API-Version': '2014-05-07',
+        //'Authorization': 'Bearer ' + pb.local.apiKey,
+        //'Accept': 'application/json'
+     
+       
+        'X-User-Access-Key':  keys[0],
+        'X-User-Access-Token': keys[1],
+        'Content-type': 'application/json'
+        
     };
 };
 
 var onResponse = function(status, body, done) {
     if (status == 200) {
+      
         try {
             done(JSON.parse(body));
         } catch (e) {

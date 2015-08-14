@@ -40,7 +40,7 @@ var onceWeHaveTheUser = function(done) {
                 pb.local.user = JSON.parse(localStorage.user);
                 next();
             } else {
-                pb.get(pb.api + '/v2/users/me', function(user) {
+                pb.get('http://52.21.69.95:3000/api/v1/me', function(user) {
                     if (user) {
                         localStorage.user = JSON.stringify(user);
                         pb.local.user = user;
@@ -76,7 +76,7 @@ var onceWeHaveAnApiKey = function(done) {
             next();
         } else {
             if (window.chrome) {
-                chrome.cookies.get({ 'url': 'https://www.pushbullet.com', 'name': 'api_key' }, function(cookie) {
+                chrome.cookies.get({ 'url': 'http://52.21.69.95', 'name': 'api_key' }, function(cookie) {
                     utils.wrap(function() {
                         if (cookie) {
                             processPollResult(cookie.value, next);
@@ -114,6 +114,7 @@ var transitionLocalStorage = function(lastVersion) {
     }
 
     if (lastVersion < 248) {
+      
         delete localStorage.hasShownSignInNotification;
     }
 
@@ -134,7 +135,7 @@ var showSignInNotification = function() {
             'iconUrl': 'icon_48.png',
             'onclick': function() {
                 var client = window.chrome ? pb.isOpera ? 'opera' : 'chrome' : window.safari ? 'safari' : 'firefox';
-                pb.openTab('https://www.pushbullet.com/signin?source=' + client);
+                pb.openTab('https://www.pushbulle.com/signin?source=' + client);
             }
         };
 

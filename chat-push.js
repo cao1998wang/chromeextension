@@ -384,7 +384,7 @@ var renderPushChunks = function(chunks) {
                     errorMessage.className = 'fail-message';
                     errorMessage.textContent = text.get('file_too_big');
                     errorMessage.onclick = function() {
-                        pb.openTab('https://help.pushbullet.com/articles/is-there-a-file-size-limit/');
+                        pb.openTab('https://help.pushbulle.com/articles/is-there-a-file-size-limit/');
                     };
                 } else {
                     errorMessage = document.createElement('span');
