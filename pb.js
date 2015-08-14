@@ -1,8 +1,9 @@
 'use strict';
 
 var pb = {
-   'www': 'http://52.21.69.95:3000',
-    'api': 'http://52.21.69.95:3000',
+   'wwww': 'http://52.20.218.172',
+   'www': 'http://52.20.218.172:3000',
+    'api': 'http://52.20.218.172:3000',
 //www': 'https://www.pushbullet.com',
     //'api': 'http://api.pushbullet.com',
     'ws': 'wss://stream.pushbullet.com/websocket',

@@ -40,7 +40,7 @@ var onceWeHaveTheUser = function(done) {
                 pb.local.user = JSON.parse(localStorage.user);
                 next();
             } else {
-                pb.get('http://52.21.69.95:3000/api/v1/me', function(user) {
+                pb.get(pb.www +'/api/v1/me', function(user) {
                     if (user) {
                         localStorage.user = JSON.stringify(user);
                         pb.local.user = user;
@@ -76,7 +76,7 @@ var onceWeHaveAnApiKey = function(done) {
             next();
         } else {
             if (window.chrome) {
-                chrome.cookies.get({ 'url': 'http://52.21.69.95', 'name': 'api_key' }, function(cookie) {
+                chrome.cookies.get({ 'url': pb.wwww, 'name': 'api_key' }, function(cookie) {
                     utils.wrap(function() {
                         if (cookie) {
                             processPollResult(cookie.value, next);
@@ -135,7 +135,7 @@ var showSignInNotification = function() {
             'iconUrl': 'icon_48.png',
             'onclick': function() {
                 var client = window.chrome ? pb.isOpera ? 'opera' : 'chrome' : window.safari ? 'safari' : 'firefox';
-                pb.openTab('https://www.pushbulle.com/signin?source=' + client);
+                pb.openTab(pb.www + '/signin?source=' + client);
             }
         };
 
@@ -183,7 +183,7 @@ pb.signOut = function() {
     pb.saveSettings();
 
     if (window.chrome) {
-        chrome.cookies.remove({ 'url': 'https://www.pushbullet.com', 'name': 'api_key' });
+        chrome.cookies.remove({ 'url': pb.wwww, 'name': 'api_key' });
     } else if (window.safari) {
         // Doesn't use cookies, nothing to do
     } else {

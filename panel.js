@@ -67,7 +67,7 @@ var setUp = function() {
 
     var signIn = function() {
         var client = window.chrome ? pb.isOpera ? 'opera' : 'chrome' : window.safari ? 'safari' : 'firefox';
-        pb.openTab('http://52.21.69.95:3000');
+        pb.openTab(pb.www );
 //pb.openTab('https://www.pushbulle.com/signin?source=' + client);
         
         if (window.safari) {
